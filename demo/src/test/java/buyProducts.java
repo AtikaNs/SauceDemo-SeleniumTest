@@ -49,9 +49,9 @@ public class buyProducts extends env_target{
     public void buyP1(){ 
         System.out.println("Checkout Products 1");
         acP1(); // add Product 1 to cart
-        seeCart(); // see product in cart
+        seeCart(); // see product in cart 
         shyc();
-        npaP1(); // see price and assert Product 1 name
+        npaP1(); // assert Product 1 name
         assert1(); // assert cart's link
     }
 
@@ -60,32 +60,32 @@ public class buyProducts extends env_target{
         System.out.println("Checkout Products 3 & 6");
         acP3(); // add Product 3 to cart
         acP6(); // add Product 6 to cart
-        seeCart(); // see product in cart
+        seeCart(); // see product in cart 
         shyc();
-        npaP3(); // see price and assert 1st product name
-        npaP6(); // see price and assert 2nd product name
+        npaP3(); // assert 1st product name
+        npaP6(); // assert 2nd product name
         assert1(); // assert cart's link
     }
 
-    @Test // add Product 1, 2, 3, and 4, then remove Product 2
+    @Test // add Product 1-4, then remove Product 2
     public void buyP13(){ 
-        System.out.println("Add Products 1, 2, 3, and 4. But, only checkout Products 1 & 3");
+        System.out.println("Add Products 1-4. But, only checkout Products 1 & 3");
         acP1(); // add Product 1 to cart
         acP2(); // add Product 2 to cart
         acP3(); // add Product 3 to cart
         acP4(); // add Product 4 to cart
         acP4(); // undo add Product 4 to cart
-        seeCart(); // see product in cart
+        seeCart(); // see product in cart 
         shyc(); // show subheader your cart text
         dcP2(); // remove Product 2 from cart
-        npaP1(); // see price and assert product 1's name
-        npaP3(); // see price and assert product 3's name
+        npaP1(); // assert product 1's name
+        npaP3(); // assert product 3's name
         assert1(); // assert cart's link
     }
 
-    @Test // Add Products 2, 3, 4, 5, 6. But, only checkout Products 2, 4, & 6
+    @Test // Add Products 2-6. But, only checkout Products 2, 4, & 6
     public void buyP246(){ 
-        System.out.println("Add Products 2, 3, 4, 5, 6. But, only checkout Products 2, 4, & 6");
+        System.out.println("Add Products 2-6. But, only checkout Products 2, 4, & 6");
         acP2(); // add Product 2 to cart
         acP3(); // add Product 3 to cart
         acP4(); // add Product 4 to cart
@@ -93,11 +93,11 @@ public class buyProducts extends env_target{
         acP5(); // add Product 3 to cart
         acP5(); // undo add Product 5 to cart
         acP6(); // add Product 6 to cart
-        seeCart(); // see product in cart
+        seeCart(); // see product in cart 
         shyc(); // show subheader your cart text
-        npaP2(); // see price and assert Product 2 name
-        npaP4(); // see price and assert Product 4 name
-        npaP6(); // see price and assert Product 6 name
+        npaP2(); // assert Product 2 name
+        npaP4(); // assert Product 4 name
+        npaP6(); // assert Product 6 name
         assert1(); // assert cart's link
     }
 
@@ -110,7 +110,7 @@ public class buyProducts extends env_target{
         acP4(); // add Product 4 to cart
         acP5(); // add Product 5 to cart
         acP6(); // add Product 6 to cart
-        seeCart(); // see product in cart
+        seeCart(); // see product in cart 
         shyc(); // show subheader your cart text
         for(int i = 0; i < 6; i++){
             WebElement remove = driver.findElement(By.xpath("//button[normalize-space()='REMOVE']"));
@@ -123,18 +123,19 @@ public class buyProducts extends env_target{
         assert1(); // assert cart's link
     }
 
-    @Test // add Product 1, 2, 3, and 4, then remove Product 2
+    @Test // Add Products 1, 2, 4, 5. But, only checkout Products 1 & 5
     public void buyP15(){ 
-        System.out.println("Add Products 1, 4, 5, 6. But, only checkout Products 1 & 5");
+        System.out.println("Add Products 1, 2, 4, 5. But, only checkout Products 1 & 5");
         acP1(); // add Product 1 to cart
         acP4(); // add Product 4 to cart
         acP4(); // undo add Product 4 to cart
         acP5(); // add Product 5 to cart
         acP6(); // add Product 6 to cart
-        seeCart(); // see product in cart
+        seeCart(); // see product in cart 
         shyc(); // show subheader your cart text
-        npaP1(); // see price and assert Product 1 name
-        npaP5(); // see price and assert Product 5 name
+        dcP2(); // remove Product 2 from cart
+        npaP1(); // assert Product 1 name
+        npaP5(); // assert Product 5 name
         assert1(); // assert cart's link
     }    
 
@@ -169,8 +170,8 @@ public class buyProducts extends env_target{
         driver.findElement(By.xpath("//*[@id=\'cart_contents_container\']/div/div[1]/div[4]/div[2]/div[2]/button")).click();
     }
 
-    // see product's name and price, then assert product's name
-    // npa = name, price, assert; P = product in the cart
+    // product's name and , then assert product's name
+    // npa = name, , assert; P = product in the cart
     public void npaP1(){
         WebElement Result = driver.findElement(By.id("item_4_title_link"));
         System.out.println(Result.getText());
@@ -207,7 +208,7 @@ public class buyProducts extends env_target{
         Assert.assertEquals(Result.getText(), "Test.allTheThings() T-Shirt (Red)");
     }
 
-    // see product's list in the cart
+    // product's list in the cart
     public void seeCart(){
         driver.findElement(By.id("shopping_cart_container")).click();
     }
