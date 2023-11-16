@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.After;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -15,8 +15,8 @@ import config.env_target;
 public class buyProducts extends env_target{
     @Before // set up before each test
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\SeleniumTest-SauceDemo\\demo\\src\\main\\resources\\chromedriver.exe");     
-        driver = new ChromeDriver(); // setting webdriver
+        System.setProperty("webdriver.edge.driver", "C:\\Users\\User\\Downloads\\SeleniumTest-SauceDemo\\demo\\src\\main\\resources\\msedgedriver.exe");     
+        driver = new EdgeDriver(); // setting webdriver
         driver.manage().window().maximize(); // maximize window
         driver.get(baseUrl); // open baseUrl
         // login using valid credential

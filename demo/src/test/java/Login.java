@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.After;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -14,8 +14,8 @@ import config.env_target;
 public class Login extends env_target {
     @Before // setup before each test
     public void information(){
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\SeleniumTest-SauceDemo\\demo\\src\\main\\resources\\chromedriver.exe");     
-        driver = new ChromeDriver(); // setting webdriver
+        System.setProperty("webdriver.edge.driver", "C:\\Users\\User\\Downloads\\SeleniumTest-SauceDemo\\demo\\src\\main\\resources\\msedgedriver.exe");     
+        driver = new EdgeDriver(); // setting webdriver
         driver.manage().window().maximize(); // maximize window
         driver.get(baseUrl); // open baseUrl
     }
@@ -37,7 +37,7 @@ public class Login extends env_target {
     
     @Test // blank username & pass
     public void blankForm(){
-        Duration duration = Duration.ofSeconds(10);
+        Duration duration = Duration.ofSeconds(30);
         WebDriverWait wait = new WebDriverWait(driver, duration);
         wait.until(
             ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/div[1]/div/div/form/input[3]"))
